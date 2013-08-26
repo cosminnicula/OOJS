@@ -1,0 +1,23 @@
+<html>
+<head>
+    <script>
+        var ParentObject = {
+            getMyString: function getMyStringMethod() {
+                return this.myString;
+            },
+            myString: "parent string"
+        };
+
+        var ChildObject = Object.create(ParentObject);
+        ChildObject.myString = "child string";
+
+        var GrandchildObject = Object.create(ChildObject);
+
+        console.log(ParentObject.getMyString()); // returns "parent string"
+        console.log(ChildObject.getMyString());
+        console.log(GrandchildObject.getMyString());
+    </script>
+</head>
+<body></body>
+</html>
+

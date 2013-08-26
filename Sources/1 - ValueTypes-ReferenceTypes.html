@@ -1,0 +1,33 @@
+<html>
+<head>
+    <script>
+        /*Value types*/
+        var myNumber1 = 1;
+        var myNumber2 = 2;
+
+        myNumber1 = myNumber2;
+
+        myNumber2 = 3;
+
+        console.log(myNumber1);
+
+        /*Reference types*/
+
+        var myObject1 = {};
+        var myObject2 = {
+            myString: "a string",
+            myNumber: 3.14159
+        };
+
+        delete myObject2.myNumber;
+
+        myObject1 = myObject2;
+
+        myObject2.myString = "another string";
+
+        console.log(myObject1.myString);
+    </script>
+</head>
+<body></body>
+</html>
+
