@@ -1,0 +1,39 @@
+<html>
+<head>
+    <script>
+
+        //typeof
+        console.log(typeof {myString: "parent string"}); //"object"
+        console.log(typeof ["one", 2, true]); //"object"
+        console.log(typeof new Date()); //"object"
+        console.log(typeof /a-z/); //"object"
+        console.log(typeof Math); //"object"
+        console.log(typeof JSON); //"object"
+        console.log(typeof new Number(3.14159)); //"object"
+        console.log(typeof new String("my string")); //"object"
+        console.log(typeof new Boolean(true)); //"object"
+
+        //toType
+        Object.toType = (function toType(global) {
+            return function(obj) {
+                if (obj === global) {
+                    return "global";
+                }
+                return ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1].toLowerCase();
+            }
+        })(this);
+
+        console.log(Object.toType({myString: "parent string"})); //"object"
+        console.log(Object.toType(["one", 2, true])); //"array"
+        console.log(Object.toType(new Date())); //"date"
+        console.log(Object.toType(/a-z/)); //"regex"
+        console.log(Object.toType(Math)); //"math"
+        console.log(Object.toType(JSON)); //"json"
+        console.log(Object.toType(new Number(3.14159))); //"number"
+        console.log(Object.toType(new String("my string"))); //"string"
+        console.log(Object.toType(new Boolean(true))); //"boolean"
+
+    </script>
+</head>
+<body></body>
+</html>

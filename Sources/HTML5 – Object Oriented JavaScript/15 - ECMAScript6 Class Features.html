@@ -1,0 +1,43 @@
+<html>
+<head>
+    <script src="https://traceur-compiler.googlecode.com/git/bin/traceur.js"></script>
+    <script src="https://traceur-compiler.googlecode.com/git/src/bootstrap.js"></script>
+    <script type="text/traceur">
+
+        //In Google Chrome, go to chrome://flags and activate "Enable Experimental JavaScript"
+        class ParentObjectClass extends Object {
+            constructor (options) {
+                this._val = options.value;
+            }
+            getMyString () {
+                return this._val;
+            }
+        }
+
+        class ChildObjectClass extends ParentObjectClass {
+            constructor (options) {
+                super(options);
+            }
+            getMyString () {
+                return super() + " modified";
+            }
+        }
+
+        var myParentObject1 = new ParentObjectClass({value: "my parent string 1"});
+
+        var myChildObject1 = new ChildObjectClass({value: "my child string 1"});
+
+        console.log(myParentObject1.getMyString());
+        console.log(myChildObject1.getMyString());
+
+        console.log(myChildObject1 instanceof ChildObjectClass); // true
+        console.log(myChildObject1 instanceof ParentObjectClass); // true
+        console.log(myChildObject1 instanceof Object); //true
+
+        console.log(ChildObjectClass.prototype); //Object!
+        console.log(Object.getPrototypeOf(myChildObject1)); //Object!
+
+    </script>
+</head>
+<body></body>
+</html>

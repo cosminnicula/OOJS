@@ -1,0 +1,30 @@
+<html>
+<head>
+    <script>
+        //"use strict";
+
+        function getMyStringMethod() {
+            return this.myString;
+        }
+
+        var myObject1 = {
+            getMyString: getMyStringMethod,
+            myString: "the first string"
+        };
+
+        var myObject2 = {
+            getMyString: getMyStringMethod,
+            myString: "the second string"
+        };
+
+        console.log(myObject1.getMyString()); // returns "the first string"
+        console.log(myObject2.getMyString()); //returns "the second string"
+
+        console.log(getMyStringMethod()); // return value can be undefined or global object
+
+        console.log(getMyStringMethod.call(myObject1)); // returns "the first string"
+    </script>
+</head>
+<body></body>
+</html>
+

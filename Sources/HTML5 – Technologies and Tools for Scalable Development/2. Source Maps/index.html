@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Source Maps Demos</title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+  <h1>Source Maps Demo</h1>
+  
+  <input type="text" id="message-in" placeholder="Type and enter..."/>
+  <p id="message-out"></p>
+  
+  <script src="scripts/jquery-1.10.2.min.js"></script>
+  
+  <!-- Comment the line below and uncomment the Options A and B one at a time -->
+  <script src="scripts/script.js"></script>
+
+  <!-- Option A: Closure Compile -->
+  <!-- Step 1: Download the latest Closure compiler: https://code.google.com/p/closure-compiler/downloads/detail?name=compiler-latest.zip -->
+  <!-- Step 2: Copy compiler.jar to scripts directory -->
+  <!-- Step 3: In the scripts directory, run the command java -jar compiler.jar --js script.js --js_output_file script.closure.js -->
+  <!-- Step 4: Uncomment the line "<script src="scripts/script.closure.js"></script>" -->
+  <!-- Step 5: Test in browser -->
+  <!-- Step 6: Create the Source Maps, by running the command java -jar compiler.jar --js script.js --create_source_map script.closure.js.map --source_map_format=V3 --js_output_file script.closure.js -->
+  <!-- Step 7: Append //@ sourceMappingURL=script.closure.js.map to the end of the script.closure.js file -->
+  <!-- Step 8: Test in browser -->
+  <!-- <script src="scripts/script.closure.js"></script> -->
+
+  <!-- Option B: UglifyJS -->
+  <!-- Step 1: In Node.js command prompt, run npm install -g uglify-js (the package will be installed in C:\Users\administrator\AppData\Roaming\npm-cache, C:\Users\administrator\node_modules, C:\Users\administrator\AppData\Roaming\npm\npm_modules -->
+  <!-- Step 2: Check that the package was successfully installed by running the command npm view uglify-js version -->
+  <!-- Step 3: In Node.js command prompt, go to "path-to_2. Source Maps\scripts" -->
+  <!-- Step 4: Run the command uglifyjs --source-map script.uglify.js.map --output script.uglify.js script.js -->
+  <!-- Step 5: Uncomment the line "<script src="scripts/script.uglify.js"></script>" -->
+  <!-- Step 6: In script.uglify.js, replace //# sourceMappingURL=script.uglify.js.map with //@ sourceMappingURL=script.uglify.js.map -->
+  <!-- Step 6: Test in browser -->
+  <!-- <script src="scripts/script.uglify.js"></script> -->
+  
+  <!-- Option C: SASS -->
+  <!-- Step 1: Go to chrome://flags/ and enable Developer Tools experiments -->
+  <!-- Step 2: In Developer Tools, Experiments, check "Saas stylesheet debugging" -->
+  <!-- Step 3: Download Ruby Installer http://rubyinstaller.org/downloads/ -->
+  <!-- Step 4: In Ruby command prompt, run gem install sass --pre -->
+  <!-- Step 5: !!!Attention!!! the styles directory should not contain spaces; A web-server should serve the HTML content; if IIS is used, a MIME type .scss / text/css should be added  -->
+  <!-- Step 6: In Ruby command prompt, go to "path-to_2. Source Maps\styles"; Run the command scss --sourcemap --watch styles.scss:styles.css -->
+  <!-- Step 7: Test in browser -->
+
+</body>
+</html>

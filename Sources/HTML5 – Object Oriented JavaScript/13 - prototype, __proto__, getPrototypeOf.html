@@ -1,0 +1,31 @@
+<html>
+<head>
+    <script>
+
+        function ParentObjectClass(options) {
+            this._val = options.value;
+            //this._val = arguments[0].value;
+        }
+
+        ParentObjectClass.prototype.getMyString = function getMyStringMethod1() {
+            return this._val;
+        }
+
+        var myParentObject1 = new ParentObjectClass({value: "my parent string 1"});
+
+        console.dir(myParentObject1);
+        console.log(myParentObject1.__proto__ === ParentObjectClass.prototype);
+        console.log(Object.getPrototypeOf(myParentObject1) === ParentObjectClass.prototype);
+        console.log(myParentObject1.__proto__ === myParentObject1.constructor.prototype);
+        console.log(myParentObject1.prototype === undefined);
+        console.log(myParentObject1.__proto__.__proto__ === Object.prototype);
+        //because ParentObjectClass is an instance of the Function object
+        console.log(ParentObjectClass.__proto__ === Function.prototype);
+        console.log(ParentObjectClass.prototype.prototype === undefined);
+        console.log(ParentObjectClass.prototype.__proto__ === Object.prototype);
+        console.log(Object.prototype.__proto__ === null);
+
+    </script>
+</head>
+<body></body>
+</html>

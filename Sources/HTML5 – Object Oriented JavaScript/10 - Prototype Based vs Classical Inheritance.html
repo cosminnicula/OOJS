@@ -1,0 +1,39 @@
+<html>
+<head>
+    <script>
+
+        //Prototype based inheritance
+        var ParentObjectClass = {
+            constructor: function c(options) {
+                this._val = options.value;
+                //this._val = arguments[0].value;
+            },
+            getMyString: function getMyStringMethod1() {
+                return this._val;
+            }
+        };
+
+        var myParentObject1 = Object.create(ParentObjectClass);
+        myParentObject1.constructor({value: "my parent string 1"});
+
+        console.log(myParentObject1.getMyString()); //returns "my parent string 1"
+
+        //Classical inheritance
+        /*function ParentObjectClass(options) {
+            this._val = options.value;
+            //this._val = arguments[0].value;
+        }
+
+        ParentObjectClass.prototype.getMyString = function getMyStringMethod1() {
+            return this._val;
+        }
+
+        var myParentObject1 = new ParentObjectClass({value: "my parent string 1"});
+
+        console.log(myParentObject1.getMyString()); //returns "my parent string 1"*/
+
+    </script>
+</head>
+<body></body>
+</html>
+

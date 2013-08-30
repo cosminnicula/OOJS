@@ -1,0 +1,44 @@
+<html>
+<head>
+    <script>
+        var ParentObjectClass = {
+			constructor: function c(options) {
+				this._val = options.value;
+				//this._val = arguments[0].value;
+			},
+            getMyString: function getMyStringMethod1() {
+                return this._val;
+            }
+        };
+
+        var myParentObject1 = Object.create(ParentObjectClass);
+		myParentObject1.constructor({value: "my parent string 1"});
+
+        var myParentObject2 = Object.create(ParentObjectClass);
+        myParentObject2.constructor({value: "my parent string 2"});
+
+        var ChildObjectClass = Object.create(ParentObjectClass);
+        ChildObjectClass.getMyString = function getMyStringMethod2() {
+            return ParentObjectClass.getMyString.call(this) + " modified";
+        };
+
+        var myChildObject1 = Object.create(ChildObjectClass);
+        myChildObject1.constructor({value: "my child string 1"});
+
+        var myChildObject2 = Object.create(ChildObjectClass);
+        myChildObject2.constructor({value: "my child string 2"});
+
+        console.log(myParentObject1.getMyString()); //returns "my parent string 1"
+        console.log(myParentObject2.getMyString());
+        console.log(myChildObject1.getMyString());
+        console.log(myChildObject2.getMyString());
+
+        console.log(myChildObject1 instanceof ChildObjectClass? true : false); //  true
+        console.log(myChildObject1 instanceof ParentObjectClass? true : false); // false
+        console.log(myChildObject1 instanceof Object ? true : false); // true
+
+    </script>
+</head>
+<body></body>
+</html>
+
