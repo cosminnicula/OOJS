@@ -23,6 +23,7 @@
             }
         }());
         console.log(digit_name(3));
+        console.log(digit_name(3));
 
         // Conditional Closure (more optimised)
         var digit_name = (function () {
@@ -33,8 +34,9 @@
                 }
                 return names[n];
             }
-        }());
+        });
         console.log(digit_name(3));
+        console.log(digit_name(2));
 
     </script>
 </head>

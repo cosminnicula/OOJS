@@ -10,8 +10,8 @@
 
         var ChildObject = Object.create(ParentObject);
         ChildObject.getMyString = function getMyStringMethod2() {
-            return ParentObject.getMyString() + " modified";
-            //return ParentObject.getMyString.call(this) + " modified";
+            //return ParentObject.getMyString() + " modified";
+            return ParentObject.getMyString.call(this) + " modified";
         };
         ChildObject.myString = "child string";
 
